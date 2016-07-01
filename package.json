@@ -1,0 +1,26 @@
+{
+  "name": "admin_alert",
+  "version": "1.0.0",
+  "description": "Alert when project is submitted",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noelfelix/Project_Alert.git"
+  },
+  "author": "Noel Felix <noel.r.felix@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noelfelix/Project_Alert/issues"
+  },
+  "homepage": "https://github.com/noelfelix/Project_Alert#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "mailgun-js": "^0.7.11",
+    "request": "^2.72.0"
+  }
+}
