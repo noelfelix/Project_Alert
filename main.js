@@ -82,7 +82,7 @@ fs.readdir('./', function(err, files) {
                       from: 'Me, Myself, and I <' + process.env.FROM_EMAIL + '>',
                       to: '' + process.env.TO_EMAIL + '',
                       subject: projects[key].degree + ' Project Available, GET IT',
-                      text: 'PROJECT: ' + projects[key].project + '\n' + project.link
+                      text: 'PROJECT: ' + projects[key].project + '\n' + projects.link
                     };
 
                     mailgun.messages().send(data, function (error, body) {
