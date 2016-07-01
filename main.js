@@ -51,6 +51,10 @@ fs.readdir('./', function(err, files) {
                 currStart = body.lastIndexOf('<td>', currEnd);
                 project.student = body.slice(currStart + 4, currEnd);
 
+                currEnd = body.lastIndexOf('"', currStart);
+                currStart = body.lastIndexOf('"', currEnd - 1);
+                project.link = "https://teamtreehouse.com" + body.slice(currStart, currEnd);
+
                 currEnd = body.lastIndexOf('<', body.lastIndexOf('b class="caret">', currStart));
                 currStart = body.lastIndexOf('>', currEnd) + 2;
                 project.project = body.slice(currStart, currEnd).trim();
@@ -78,7 +82,7 @@ fs.readdir('./', function(err, files) {
                       from: 'Me, Myself, and I <' + process.env.FROM_EMAIL + '>',
                       to: '' + process.env.TO_EMAIL + '',
                       subject: projects[key].degree + ' Project Available, GET IT',
-                      text: 'PROJECT: ' + projects[key].project + '\nhttps://teamtreehouse.com/admin/degree_services_dashboard/reviews'
+                      text: 'PROJECT: ' + projects[key].project + '\n' + project.link
                     };
 
                     mailgun.messages().send(data, function (error, body) {
