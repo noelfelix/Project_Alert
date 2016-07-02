@@ -54,7 +54,7 @@ fs.readdir('./', function(err, files) {
 
                 currEnd = body.lastIndexOf('"', currStart);
                 currStart = body.lastIndexOf('"', currEnd - 1);
-                project.link = "https://teamtreehouse.com" + body.slice(currStart, currEnd);
+                project.link = "https://teamtreehouse.com" + body.slice(currStart + 1, currEnd);
 
                 currEnd = body.lastIndexOf('<', body.lastIndexOf('b class="caret">', currStart));
                 currStart = body.lastIndexOf('>', currEnd) + 2;
