@@ -9,7 +9,7 @@ const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 const schedule = require('node-schedule');
 
 const url = process.env.TREEHOUSE_ADMIN_URL;
-const degrees = ['Full Stack', 'Front End'];
+const degrees = ['Full Stack', 'Front End', 'Java Web Development', 'Python Web Development', 'iOS Development', 'Android Development'];
 const myDegrees = ['Full Stack'];
 
 fs.readdir('./', function(err, files) {
@@ -82,7 +82,7 @@ fs.readdir('./', function(err, files) {
                       from: 'Me, Myself, and I <' + process.env.FROM_EMAIL + '>',
                       to: '' + process.env.TO_EMAIL + '',
                       subject: projects[key].degree + ' Project Available, GET IT',
-                      text: 'PROJECT: ' + projects[key].project + '\n' + projects.link
+                      text: 'PROJECT: ' + projects[key].project + '\n' + projects[key].link
                     };
 
                     mailgun.messages().send(data, function (error, body) {
