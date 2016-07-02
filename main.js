@@ -29,6 +29,7 @@ fs.readdir('./', function(err, files) {
 
       request({url: url}, (error, response, body) => {
         if(body !== undefined) {
+          body = body.slice(body.indexOf('Unassigned Project Submissions'), body.indexOf('Completed Project Submissions'));
           degrees.forEach(function(degree) {
             let idxStart, idxEnd;
 
